@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "update": "node ./scripts/genREADME.js",
     "test": "jest"
   },
   "dependencies": {
@@ -13,6 +14,7 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.5.0",
     "babel-jest": "^28.0.3",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
