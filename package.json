@@ -4,7 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "update": "node ./scripts/genREADME.js",
+    "n": "yarn new",
+    "new": "node ./scripts/genFile.js",
+    "u": "yarn update",
+    "update": "nodemon ./scripts/genREADME.js",
+    "t": "yarn test --watch",
     "test": "jest"
   },
   "dependencies": {

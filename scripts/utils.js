@@ -13,6 +13,16 @@ function writeFile(filePath, str) {
   log(`✅ 写入文件 ${filePath} 成功`);
 }
 
+function deleteFile(filePath, isExist) {
+  if (!isExist) {
+    console.error(`文件 ${filePath} 不存在`)
+    return
+  }
+  fs.unlink(filePath, (err) => {
+    console.error(err)
+  })
+}
+
 /**
  * 源代码文件路径：./src/ + prefix + '/' + index + fn + .ts
  */
@@ -34,6 +44,7 @@ function getTestFilePath(prefix, index, fn) {
 module.exports = {
   isFileExist,
   writeFile,
+  deleteFile,
   getCodeFilePath,
   getTestFilePath,
   log,
