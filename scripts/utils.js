@@ -3,7 +3,9 @@ const fs = require("fs");
 const { log } = console;
 
 function isFileExist(filePath) {
-  return fs.existsSync(filePath);
+  const ret = fs.existsSync(filePath);
+  // log(filePath, ret)
+  return ret
 }
 
 function writeFile(filePath, str) {
@@ -12,7 +14,7 @@ function writeFile(filePath, str) {
 }
 
 /**
- * 源代码文件路径：./src/ + prefix + index + fn + .ts
+ * 源代码文件路径：./src/ + prefix + '/' + index + fn + .ts
  */
 function getCodeFilePath(prefix, index, fn) {
   return fn
@@ -20,9 +22,19 @@ function getCodeFilePath(prefix, index, fn) {
     : "";
 }
 
+/**
+ * 单测文件路径：./src/ + prefix + '/__test__/' + index + fn + .test.ts
+ */
+function getTestFilePath(prefix, index, fn) {
+  return fn
+    ? `./src/${prefix}/__test__/${String(index).padStart(4, "0")}${fn}.test.ts`
+    : "";
+}
+
 module.exports = {
   isFileExist,
   writeFile,
   getCodeFilePath,
+  getTestFilePath,
   log,
 };
